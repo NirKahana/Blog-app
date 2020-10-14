@@ -1,0 +1,33 @@
+h2 {
+    padding: 1rem;
+    margin: 0;
+}
+.ul {
+    padding: 0;
+    margin: 0;
+}
+.li {
+    list-style: none;
+    padding: 0.5em;
+    background-color: burlywood;
+    margin: 1em;
+    border-radius: 3px;
+}
+.li div:nth-child(1) {
+    padding: 0.5em;
+}
+.li div:nth-child(2) {
+    padding: 0.5em;
+    display: flex;
+    justify-content: flex-end;
+    font-family: cursive;
+}
+.li div:nth-child(2) span {
+    margin-right: 0;
+}
+.list-wrapper {
+    padding: 0 0.5em 0.5em 0.5em;
+    width: 50%;
+    background-color: antiquewhite;
+    margin: 1em auto;
+}

@@ -1,0 +1,27 @@
+.form-wrapper {
+    /* position: fixed; */
+    bottom: 0;
+    height: 30vh;
+    background-color: rgb(185, 154, 113);
+    padding: 3em;
+}
+
+
+
+.name_input p {
+    display: inline-block;
+    width: 5em;
+}
+
+
+.comment_input {
+    display: flex;
+}
+.comment_input p {
+    margin-top: 0;
+    width: 5em;
+}
+.comment_input textarea{
+    width: 30em;
+    height: 5em;
+}

@@ -9,13 +9,17 @@ function CommentsList() {
 
   return (
     <>
-      <ul>
+    <div className="list-wrapper">
+      <h2>Comments:</h2>
+      <ul className="ul">
         {commentsArr.map((comment, index) => 
           <li className="li" key={index}>
-            {comment}
+            <div><span>"{comment}"</span></div>
+            <div><span>nirko7</span></div>
           </li>
         )}
       </ul>
+    </div>
     </>
   )
 }
