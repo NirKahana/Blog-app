@@ -8,7 +8,6 @@ function CommentsList() {
   useEffect(() => {
     const fetchData = async () => {
       const comments = (await axios.get('/comments/all')).data;
-      console.log(comments);
       setComments(comments);
     }
     fetchData()
