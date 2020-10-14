@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/v1/comments/post
+Content-Type: application/json
+
+{
+    "comment": "this is amazing",
+    "name": "nirkahana8"
+}

@@ -2,7 +2,7 @@ const { Router } = require("express");
 const router = Router();
 
 
-router.use('/comment', require('./comment'));
+router.use('/comments', require('./comments'));
 
 
 const unknownEndpoint = (req, res) => {

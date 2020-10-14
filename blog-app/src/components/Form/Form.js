@@ -1,56 +1,52 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useState } from "react";
+import { useForm } from 'react-hook-form';
 import axios from 'axios';
-import "./Form.css"
+import "./Form.css";
+
 
 function Form() {
+  // const path = window.location.pathname;
+  const { handleSubmit, register } = useForm();
 
-  const nameInput = useRef();
-  const commentInput = useRef();
+  // const [inputValue, setInputValue] = useState("");
+  // const [textareaValue, setTextareaValue] = useState("");
+
+  
   
   useEffect(() => {
-    nameInput.current.focus();
-    window.scrollTo(0, 0);
-    console.log("rendered");
+    
   }, []);
 
-  const onEnterClicked = (e, field) => {
-    if (e.keyCode === 13) {
-      switch (field) {
-        case "name":
-          commentInput.current.focus();
-          break;
-        case "comment":
-          e.preventDefault();
-          nameInput.current.focus();
-          break;
-      
-        default:
-          break;
-      }
-    }
-  }
-  const onButtonClicked = async (e) => {
-    e.preventDefault();
-    const { data } = await axios.get('/comment')
-    console.log(data);
+    const onSubmit = async (values) => {
+        const response = await axios.post('/comments/post', values);
+        if (response.status === 200) {
+          console.log("request was sent successfully");
+        }
   }
 
   return (
     <>
     <div className="form-wrapper">
-      <form>
+
+      <form onSubmit={handleSubmit(onSubmit)}>
 
         <div className="name_input">
           <p>Name: </p>
-          <input placeholder="name" ref={nameInput} onKeyDown={(e) => onEnterClicked(e, "name")}/>
+          <input placeholder="name" 
+                ref={register}
+                name="name"
+          />
         </div>
 
         <div className="comment_input">
           <p>Comment: </p>
-          <textarea placeholder="write your comment here" ref={commentInput} onKeyDown={(e) => onEnterClicked(e, "comment")}/>
+          <textarea placeholder="write your comment here" 
+                    ref={register} 
+                    name="comment" 
+          />
         </div>
 
-        <button className="submit_button" onClick={(e)=> onButtonClicked(e)}>Submit</button>
+        <button className="submit_button" type="submit">Send Comment</button>
 
       </form>
     </div>

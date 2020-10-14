@@ -6,13 +6,10 @@
     padding: 3em;
 }
 
-
-
 .name_input p {
     display: inline-block;
     width: 5em;
 }
-
 
 .comment_input {
     display: flex;
@@ -24,4 +21,12 @@
 .comment_input textarea{
     width: 30em;
     height: 5em;
+    resize: none;
+}
+.submit_button {
+    margin: 1em 0;
+    background-color: #d49a70;
+    border: 1px thick black;
+    height: 2.5em;
+    cursor: pointer;
 }
