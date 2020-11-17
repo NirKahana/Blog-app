@@ -33,7 +33,6 @@ function Form() {
   return (
     <>
     <div className="form-wrapper">
-
       <form onSubmit={handleSubmit(onSubmit)} >
 
         <div className="name_input">
@@ -50,12 +49,12 @@ function Form() {
 
         <div className="comment_input">
           <p>Comment: </p>
-          <textarea placeholder="write your comment here" 
+          <textarea placeholder="write your comment here"
                     ref={(e) => {
                       register(e)
                       commentRef.current = e;
                     }}
-                    name="comment" 
+                    name="comment"
           />
         </div>
 
