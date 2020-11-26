@@ -4,7 +4,7 @@ import axios from 'axios';
 import "./Form.css";
 
 
-function Form() {
+function Form({ setCommentsAreUpToDate }) {
 
   const { handleSubmit, register, reset } = useForm();
   const nameRef = useRef();
@@ -22,6 +22,7 @@ function Form() {
         console.log("request was sent successfully");
       }
       reset();
+      setCommentsAreUpToDate(false);
   }
   const onEnterClicked = (e) => {
     if (e.keyCode === 13) {

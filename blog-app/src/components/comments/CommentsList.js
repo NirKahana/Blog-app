@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
-import "./CommentsList.css"
 import axios from 'axios'
-function CommentsList() {
+
+import "./CommentsList.css"
+import Comment from "./Comment"
+
+
+function CommentsList({ commentsAreUpToDate, setCommentsAreUpToDate }) {
   
   const [comments, setComments] = useState([])
 
@@ -13,16 +17,22 @@ function CommentsList() {
     fetchData()
   }, []);
 
+  useEffect(() => {
+    const fetchData = async () => {
+      const comments = (await axios.get('/comments/all')).data;
+      setComments(comments);
+    }
+    fetchData()
+    setCommentsAreUpToDate(true)
+  }, [commentsAreUpToDate]);
+
   return comments ? (
     <>
     <div className="list-wrapper">
       <h2>Comments:</h2>
       <ul className="ul">
-        {comments.map((comment, index) => 
-          <li className="li" key={index}>
-            <div><span>"{comment.comment}"</span></div>
-            <div><span>{comment.name}</span></div>
-          </li>
+        {comments.map((comment, index) =>  
+          <Comment key={index} comment={comment}/>
         )}
       </ul>
     </div>

@@ -1,21 +1,17 @@
-import React, { useEffect, lazy, Suspense } from "react";
-import CommentsList from './comments_list/CommentsList'
+import React, { lazy, Suspense, useState } from "react";
+import CommentsList from './comments/CommentsList'
 import ErrorBoundary from './ErrorBoundry'
 const Form = lazy(() => import('./Form/Form'));
 
 function Home() {
-  
-  useEffect(() => {
-    
-  }, []);
+  const [commentsAreUpToDate, setCommentsAreUpToDate] = useState(true);
 
   return (
     <>
-    <CommentsList />
-
+    <CommentsList commentsAreUpToDate={commentsAreUpToDate} setCommentsAreUpToDate={setCommentsAreUpToDate}/>
     <Suspense fallback={<h1>Loading...</h1>}>
       <ErrorBoundary>
-            <Form/>
+            <Form setCommentsAreUpToDate={setCommentsAreUpToDate}/>
       </ErrorBoundary>
     </Suspense>
     </>
