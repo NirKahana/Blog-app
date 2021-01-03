@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const comments = require("../../mock-comments")
+const comments = require("../../mock-comments");
 const router = Router();
 
 router.get('/all', (req, res) => {
