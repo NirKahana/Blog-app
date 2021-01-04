@@ -1,4 +1,5 @@
 FROM node:alpine
+ENV PORT=3001
 WORKDIR '/app'
 
 COPY package.json .
