@@ -11,7 +11,7 @@ function CommentsList({ commentsAreUpToDate, setCommentsAreUpToDate }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const comments = (await axios.get('/comments/all')).data;
+      const comments = (await axios.get('/api/v1/comments/all')).data;
       setComments(comments);
     }
     fetchData()
@@ -19,7 +19,7 @@ function CommentsList({ commentsAreUpToDate, setCommentsAreUpToDate }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const comments = (await axios.get('/comments/all')).data;
+      const comments = (await axios.get('/api/v1/comments/all')).data;
       setComments(comments);
     }
     fetchData()

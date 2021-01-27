@@ -5,7 +5,7 @@ const Form = lazy(() => import('./Form/Form'));
 
 function Home() {
   const [commentsAreUpToDate, setCommentsAreUpToDate] = useState(true);
-
+  console.log(process.env);
   return (
     <>
     <CommentsList commentsAreUpToDate={commentsAreUpToDate} setCommentsAreUpToDate={setCommentsAreUpToDate}/>

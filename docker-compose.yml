@@ -2,7 +2,7 @@ version: "3"
 
 services:
 
-  server:
+  ba-server:
     build: 
       context: ./server
       dockerfile: Dockerfile
@@ -14,20 +14,20 @@ services:
     networks: 
       - my-net
 
-  react-app:
+  ba-client:
     build: 
       context: ./blog-app
       dockerfile: Dockerfile
     volumes: 
       - ./blog-app:/usr/src/app/
     stdin_open: true
-    # ports: 
-    #   - "3000:3000"
+    ports: 
+      - "3000:3000"
     tty: true
     networks: 
       - my-net
     depends_on: 
-      - server
+      - ba-server
       
 networks:
   my-net:

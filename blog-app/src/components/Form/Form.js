@@ -17,7 +17,7 @@ function Form({ setCommentsAreUpToDate }) {
   }, []);
 
   const onSubmit = async (values) => {
-      const response = await axios.post('/comments/post', values);
+      const response = await axios.post('/api/v1/comments/post', values);
       if (response.status === 200) {
         console.log("request was sent successfully");
       }
